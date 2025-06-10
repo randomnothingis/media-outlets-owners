@@ -46,7 +46,7 @@ export const SelectionPanel: React.FC<SelectionPanelProps> = ({
   };
 
   return (
-    <div className="w-80 bg-white rounded-xl shadow-lg p-6 h-full flex flex-row">
+    <div className="w-80 bg-white rounded-xl shadow-lg p-6 h-full flex flex-col">
       {/* Owners Section */}
       <div className="mb-6 flex-1">
         <div className="flex items-center mb-4">
