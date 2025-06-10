@@ -17,9 +17,9 @@ export const BubbleChart: React.FC<BubbleChartProps> = ({ data, highlightedOwner
     const svg = d3.select(svgRef.current);
     svg.selectAll('*').remove();
 
-    const width =  window.innerWidth*0.6;
-    const height = window.innerHeight*0.6;
-    const margin = { top: 40, right: 40, bottom: 100, left: 100 };
+    const margin = { top: 60, right: 60, bottom: 80, left: 200 }; // Increased left margin for labels
+    const width = window.innerWidth*0.6 - margin.left - margin.right;
+    const height = Math.max(window.innerHeight*0.6, data.length * 25) - margin.bottom - margin.top; // Dynamic height
 
     const g = svg.append('g')
       .attr('transform', `translate(${margin.left},${margin.top})`);
