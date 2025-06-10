@@ -33,7 +33,7 @@ export const SelectionPanel: React.FC<SelectionPanelProps> = ({
       return map;
     }, new Map())
   ).sort((a, b) => b.count - a.count);
-  print('owners', owners);
+  console.log('owners', owners);
 
   // Sort outlets by audience size (descending)
   const outlets = [...data].sort((a, b) => (b.audience_size || 0) - (a.audience_size || 0));
