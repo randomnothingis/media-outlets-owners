@@ -117,7 +117,7 @@ export const Dashboard: React.FC = () => {
         </div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           <div className="bg-white rounded-xl shadow-lg p-6 text-center">
             <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg mx-auto mb-3">
               <BarChart3 className="h-6 w-6 text-blue-600" />
@@ -148,19 +148,19 @@ export const Dashboard: React.FC = () => {
             <p className="text-gray-600">Total Audience</p>
           </div>
 
-          <div className="bg-white rounded-xl shadow-lg p-6 text-center">
+          {/* <div className="bg-white rounded-xl shadow-lg p-6 text-center">
             <div className="flex items-center justify-center w-12 h-12 bg-orange-100 rounded-lg mx-auto mb-3">
               <TrendingUp className="h-6 w-6 text-orange-600" />
             </div>
             <h3 className="text-2xl font-bold text-gray-800">{avgAge || 0}</h3>
             <p className="text-gray-600">Avg Age (Years)</p>
-          </div>
+          </div> */}
         </div>
 
         {/* Main Content Area */}
         <div className="flex gap-6">
           {/* Left Panel - Selection Interface */}
-          <div className="flex-shrink-0">
+          {/* <div className="flex-shrink-0">
             <SelectionPanel
               data={data}
               selectedOwner={selectedOwner}
@@ -168,12 +168,12 @@ export const Dashboard: React.FC = () => {
               onOwnerSelect={handleOwnerSelect}
               onOutletSelect={handleOutletSelect}
             />
-          </div>
+          </div> */}
 
           {/* Right Panel - Visualizations */}
           <div className="flex-1">
             {/* Tab Navigation */}
-            <div className="flex justify-center mb-6">
+            <div className="flex justify-center mb-8">
               <div className="bg-white rounded-lg shadow-lg p-1 flex">
                 {tabs.map(tab => {
                   const Icon = tab.icon;
