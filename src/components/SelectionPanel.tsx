@@ -83,11 +83,11 @@ export const SelectionPanel: React.FC<SelectionPanelProps> = ({
               </div>
               <div className="flex justify-between items-center mt-1">
                 <span className="text-xs text-gray-500">
-                  {owner.count} outlet{owner.count !== 1 ? 's' : ''}
+                  {owner[1].count} outlet{owner[1].count !== 1 ? 's' : ''}
                 </span>
                 {owner.totalAudience > 0 && (
                   <span className="text-xs text-gray-600 font-medium">
-                    {formatAudience(owner.totalAudience)}
+                    {formatAudience(owner[1].totalAudience)}
                   </span>
                 )}
               </div>
