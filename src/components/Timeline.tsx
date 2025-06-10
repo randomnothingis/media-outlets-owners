@@ -200,7 +200,7 @@ export const Timeline: React.FC<TimelineProps> = ({ data, highlightedOwner, onOw
       <div className="overflow-auto max-h-[600px]">
         <svg
           ref={svgRef}
-          width="600"
+          width="1200"
           height="600"
           className="w-full"
         />
