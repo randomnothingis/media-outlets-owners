@@ -18,7 +18,7 @@ export const Timeline: React.FC<TimelineProps> = ({ data, highlightedOwner, onOw
     svg.selectAll('*').remove();
 
     const margin = { top: 60, right: 60, bottom: 80, left: 200 }; // Increased left margin for labels
-    const width = 1200 - margin.left - margin.right;
+    const width = 600 - margin.left - margin.right;
     const height = Math.max(600, data.length * 25) - margin.bottom - margin.top; // Dynamic height
 
     // Sort data by founding year for consecutive timeline
