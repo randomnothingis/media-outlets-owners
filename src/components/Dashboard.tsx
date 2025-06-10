@@ -173,7 +173,7 @@ export const Dashboard: React.FC = () => {
           {/* Right Panel - Visualizations */}
           <div className="flex-1">
             {/* Tab Navigation */}
-            <div className="flex justify-center mb-8">
+            <div className="flex justify-center mb-6">
               <div className="bg-white rounded-lg shadow-lg p-1 flex">
                 {tabs.map(tab => {
                   const Icon = tab.icon;
