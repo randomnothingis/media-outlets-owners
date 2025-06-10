@@ -53,7 +53,7 @@ export const Timeline: React.FC<TimelineProps> = ({ data, highlightedOwner, onOw
       .attr('class', 'timeline-bar')
       .attr('x', d => xScale(d.founding_year))
       .attr('y', d => yScale(d.outlet)!)
-      .attr('width', d => xScale(d.end_year || 2024) - xScale(d.founding_year))
+      .attr('width', d => xScale(d.end_year || 2025) - xScale(d.founding_year))
       .attr('height', yScale.bandwidth())
       .attr('fill', d => ownerColors(d.owner))
       .attr('opacity', d => highlightedOwner && highlightedOwner !== d.owner ? 0.3 : 0.8)
@@ -200,7 +200,7 @@ export const Timeline: React.FC<TimelineProps> = ({ data, highlightedOwner, onOw
       <div className="overflow-auto max-h-[600px]">
         <svg
           ref={svgRef}
-          width="1200"
+          width=""
           height="600"
           className="w-full"
         />
