@@ -36,8 +36,8 @@ export const Dashboard: React.FC = () => {
   };
 
   const handleOwnerSelect = (owner: string | undefined) => {
-    setSelectedOwner(owner);
-    setSelectedOutlet(undefined); // Clear outlet selection when owner changes
+    // setSelectedOwner(owner);
+    // setSelectedOutlet(undefined); // Clear outlet selection when owner changes
     setHighlightedOwner(owner);
   };
 
@@ -47,7 +47,7 @@ export const Dashboard: React.FC = () => {
       // Find the owner of the selected outlet and highlight them
       const selectedOutletData = data.find(d => d.outlet === outlet);
       if (selectedOutletData) {
-        setSelectedOwner(selectedOutletData.owner);
+        // setSelectedOwner(selectedOutletData.owner);
         setHighlightedOwner(selectedOutletData.owner);
       }
     } else {
@@ -165,8 +165,8 @@ export const Dashboard: React.FC = () => {
               data={data}
               selectedOwner={selectedOwner}
               selectedOutlet={selectedOutlet}
-              onOwnerSelect={handleOwnerHighlight}
-              onOutletSelect={handleOutletHighlight}
+              onOwnerSelect={handleOwnerSelect} 
+              onOutletSelect={handleOutletSelect}
             />
           </div>
 
