@@ -66,27 +66,28 @@ export const SelectionPanel: React.FC<SelectionPanelProps> = ({
             <div className="font-medium text-sm">All Owners</div>
             <div className="text-xs text-gray-500">View all media outlets</div>
           </button>
-          
+
+
           {owners.map((owner) => (
             <button
-              key={owner.name}
-              onClick={() => onOwnerSelect(owner.name === selectedOwner ? undefined : owner.name)}
+              key={owner[1].name}
+              onClick={() => onOwnerSelect(owner[1].name === selectedOwner ? undefined : owner[1].name)}
               className={`w-full text-left p-3 rounded-lg transition-all duration-200 ${
-                selectedOwner === owner.name
+                selectedOwner === owner[1].name
                   ? 'bg-blue-50 border-2 border-blue-200 text-blue-800'
                   : 'hover:bg-gray-50 border-2 border-transparent'
               }`}
             >
               <div className="font-medium text-sm truncate" title={owner.name}>
-                {owner.name}
+                {owner[1].name}
               </div>
               <div className="flex justify-between items-center mt-1">
                 <span className="text-xs text-gray-500">
-                  {owner.count} outlet{owner.count !== 1 ? 's' : ''}
+                  {owner[1].count} outlet{owner[1].count !== 1 ? 's' : ''}
                 </span>
                 {owner.totalAudience > 0 && (
                   <span className="text-xs text-gray-600 font-medium">
-                    {formatAudience(owner.totalAudience)}
+                    {formatAudience(owner[1].totalAudience)}
                   </span>
                 )}
               </div>

@@ -18,8 +18,8 @@ export const Timeline: React.FC<TimelineProps> = ({ data, highlightedOwner, onOw
     svg.selectAll('*').remove();
 
     const margin = { top: 60, right: 60, bottom: 80, left: 200 }; // Increased left margin for labels
-    const width = 1200 - margin.left - margin.right;
-    const height = Math.max(600, data.length * 25) - margin.bottom - margin.top; // Dynamic height
+    const width = window.innerWidth*0.6 - margin.left - margin.right;
+    const height = Math.max(window.innerHeight*0.6, data.length * 25) - margin.bottom - margin.top; // Dynamic height
 
     // Sort data by founding year for consecutive timeline
     const sortedData = [...data].sort((a, b) => b.founding_year - a.founding_year);
@@ -53,7 +53,7 @@ export const Timeline: React.FC<TimelineProps> = ({ data, highlightedOwner, onOw
       .attr('class', 'timeline-bar')
       .attr('x', d => xScale(d.founding_year))
       .attr('y', d => yScale(d.outlet)!)
-      .attr('width', d => xScale(d.end_year || 2024) - xScale(d.founding_year))
+      .attr('width', d => xScale(d.end_year || 2025) - xScale(d.founding_year))
       .attr('height', yScale.bandwidth())
       .attr('fill', d => ownerColors(d.owner))
       .attr('opacity', d => highlightedOwner && highlightedOwner !== d.owner ? 0.3 : 0.8)
@@ -153,41 +153,41 @@ export const Timeline: React.FC<TimelineProps> = ({ data, highlightedOwner, onOw
       .text('Year');
 
     // Add legend with better spacing and text handling
-    const legend = g.append('g')
-      .attr('transform', `translate(${width - 250}, -40)`);
+    // const legend = g.append('g')
+    //   .attr('transform', `translate(${width - 250}, -40)`);
 
-    const owners = [...new Set(sortedData.map(d => d.owner))];
-    const legendItems = legend.selectAll('.legend-item')
-      .data(owners.slice(0, 8)) // Show more items
-      .enter()
-      .append('g')
-      .attr('class', 'legend-item')
-      .attr('transform', (d, i) => `translate(${Math.floor(i / 4) * 130}, ${(i % 4) * 18})`) // Two columns
-      .on('mouseover', (event, d) => onOwnerHover(d))
-      .on('mouseout', () => onOwnerHover(undefined))
-      .style('cursor', 'pointer');
+    // const owners = [...new Set(sortedData.map(d => d.owner))];
+    // const legendItems = legend.selectAll('.legend-item')
+    //   .data(owners.slice(0, 8)) // Show more items
+    //   .enter()
+    //   .append('g')
+    //   .attr('class', 'legend-item')
+    //   .attr('transform', (d, i) => `translate(${Math.floor(i / 4) * 130}, ${(i % 4) * 18})`) // Two columns
+    //   .on('mouseover', (event, d) => onOwnerHover(d))
+    //   .on('mouseout', () => onOwnerHover(undefined))
+    //   .style('cursor', 'pointer');
 
-    legendItems.append('rect')
-      .attr('width', 12)
-      .attr('height', 12)
-      .attr('rx', 2)
-      .attr('fill', d => ownerColors(d))
-      .attr('opacity', d => highlightedOwner && highlightedOwner !== d ? 0.3 : 0.8);
+    // legendItems.append('rect')
+    //   .attr('width', 12)
+    //   .attr('height', 12)
+    //   .attr('rx', 2)
+    //   .attr('fill', d => ownerColors(d))
+    //   .attr('opacity', d => highlightedOwner && highlightedOwner !== d ? 0.3 : 0.8);
     
-    legendItems.append('text')
-      .attr('x', 16)
-      .attr('y', 6)
-      .attr('dy', '0.35em')
-      .attr('font-size', '10px')
-      .attr('font-weight', '500')
-      .attr('fill', '#374151')
-      .attr('opacity', d => highlightedOwner && highlightedOwner !== d ? 0.4 : 1)
-      .text(d => {
-        const maxLength = 12;
-        return d.length > maxLength ? d.substring(0, maxLength) + '...' : d;
-      })
-      .append('title')
-      .text(d => d);
+    // legendItems.append('text')
+    //   .attr('x', 16)
+    //   .attr('y', 6)
+    //   .attr('dy', '0.35em')
+    //   .attr('font-size', '10px')
+    //   .attr('font-weight', '500')
+    //   .attr('fill', '#374151')
+    //   .attr('opacity', d => highlightedOwner && highlightedOwner !== d ? 0.4 : 1)
+    //   .text(d => {
+    //     const maxLength = 12;
+    //     return d.length > maxLength ? d.substring(0, maxLength) + '...' : d;
+    //   })
+    //   .append('title')
+    //   .text(d => d);
 
     // Update SVG height to accommodate content
     svg.attr('height', height + margin.top + margin.bottom);

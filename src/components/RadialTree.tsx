@@ -209,39 +209,39 @@ export const RadialTree: React.FC<RadialTreeProps> = ({ data, highlightedOwner, 
       });
 
     // Add legend in a corner
-    const legend = g.append('g')
-      .attr('transform', `translate(${-width/2 + 20}, ${-height/2 + 20})`);
+    // const legend = g.append('g')
+    //   .attr('transform', `translate(${-width/2 + 20}, ${-height/2 + 20})`);
 
-    const owners = [...new Set(sortedData.map(d => d.name))];
-    const legendItems = legend.selectAll('.legend-item')
-      .data(owners.slice(0, 6))
-      .enter()
-      .append('g')
-      .attr('class', 'legend-item')
-      .attr('transform', (d, i) => `translate(0, ${i * 20})`)
-      .on('mouseover', (event, d) => onOwnerHover(d))
-      .on('mouseout', () => onOwnerHover(undefined))
-      .style('cursor', 'pointer');
+    // const owners = [...new Set(sortedData.map(d => d.name))];
+    // const legendItems = legend.selectAll('.legend-item')
+    //   .data(owners.slice(0, 6))
+    //   .enter()
+    //   .append('g')
+    //   .attr('class', 'legend-item')
+    //   .attr('transform', (d, i) => `translate(0, ${i * 20})`)
+    //   .on('mouseover', (event, d) => onOwnerHover(d))
+    //   .on('mouseout', () => onOwnerHover(undefined))
+    //   .style('cursor', 'pointer');
 
-    legendItems.append('circle')
-      .attr('r', 6)
-      .attr('fill', d => colorScale(d))
-      .attr('opacity', d => highlightedOwner && highlightedOwner !== d ? 0.3 : 0.8);
+    // legendItems.append('circle')
+    //   .attr('r', 6)
+    //   .attr('fill', d => colorScale(d))
+    //   .attr('opacity', d => highlightedOwner && highlightedOwner !== d ? 0.3 : 0.8);
     
-    legendItems.append('text')
-      .attr('x', 12)
-      .attr('y', 0)
-      .attr('dy', '0.35em')
-      .attr('font-size', '11px')
-      .attr('font-weight', '500')
-      .attr('fill', '#374151')
-      .attr('opacity', d => highlightedOwner && highlightedOwner !== d ? 0.4 : 1)
-      .text(d => {
-        const maxLength = 15;
-        return d.length > maxLength ? d.substring(0, maxLength) + '...' : d;
-      })
-      .append('title')
-      .text(d => d);
+    // legendItems.append('text')
+    //   .attr('x', 12)
+    //   .attr('y', 0)
+    //   .attr('dy', '0.35em')
+    //   .attr('font-size', '11px')
+    //   .attr('font-weight', '500')
+    //   .attr('fill', '#374151')
+    //   .attr('opacity', d => highlightedOwner && highlightedOwner !== d ? 0.4 : 1)
+    //   .text(d => {
+    //     const maxLength = 15;
+    //     return d.length > maxLength ? d.substring(0, maxLength) + '...' : d;
+    //   })
+    //   .append('title')
+    //   .text(d => d);
 
   }, [data, highlightedOwner, onOwnerHover]);
 

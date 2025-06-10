@@ -17,8 +17,8 @@ export const BubbleChart: React.FC<BubbleChartProps> = ({ data, highlightedOwner
     const svg = d3.select(svgRef.current);
     svg.selectAll('*').remove();
 
-    const width = 900;
-    const height = 650;
+    const width =  window.innerWidth*0.6;
+    const height = window.innerHeight*0.6;
     const margin = { top: 40, right: 40, bottom: 100, left: 100 };
 
     const g = svg.append('g')
@@ -152,40 +152,40 @@ export const BubbleChart: React.FC<BubbleChartProps> = ({ data, highlightedOwner
       .attr('fill', '#374151')
       .text('Audience Size');
 
-    // Add legend with better layout
-    const legend = g.append('g')
-      .attr('transform', `translate(${width - margin.right - 280}, ${height - margin.top - margin.bottom + 20})`);
+    // // Add legend with better layout
+    // const legend = g.append('g')
+    //   .attr('transform', `translate(${width - margin.right - 280}, ${height - margin.top - margin.bottom + 20})`);
 
-    const owners = [...new Set(validData.map(d => d.owner))];
-    const legendItems = legend.selectAll('.legend-item')
-      .data(owners.slice(0, 8))
-      .enter()
-      .append('g')
-      .attr('class', 'legend-item')
-      .attr('transform', (d, i) => `translate(${Math.floor(i / 4) * 140}, ${(i % 4) * 18})`)
-      .on('mouseover', (event, d) => onOwnerHover(d))
-      .on('mouseout', () => onOwnerHover(undefined))
-      .style('cursor', 'pointer');
+    // const owners = [...new Set(validData.map(d => d.owner))];
+    // const legendItems = legend.selectAll('.legend-item')
+    //   .data(owners.slice(0, 8))
+    //   .enter()
+    //   .append('g')
+    //   .attr('class', 'legend-item')
+    //   .attr('transform', (d, i) => `translate(${Math.floor(i / 4) * 140}, ${(i % 4) * 18})`)
+    //   .on('mouseover', (event, d) => onOwnerHover(d))
+    //   .on('mouseout', () => onOwnerHover(undefined))
+    //   .style('cursor', 'pointer');
 
-    legendItems.append('circle')
-      .attr('r', 6)
-      .attr('fill', d => colorScale(d))
-      .attr('opacity', d => highlightedOwner && highlightedOwner !== d ? 0.3 : 0.8);
+    // legendItems.append('circle')
+    //   .attr('r', 6)
+    //   .attr('fill', d => colorScale(d))
+    //   .attr('opacity', d => highlightedOwner && highlightedOwner !== d ? 0.3 : 0.8);
     
-    legendItems.append('text')
-      .attr('x', 12)
-      .attr('y', 0)
-      .attr('dy', '0.35em')
-      .attr('font-size', '11px')
-      .attr('font-weight', '500')
-      .attr('fill', '#374151')
-      .attr('opacity', d => highlightedOwner && highlightedOwner !== d ? 0.4 : 1)
-      .text(d => {
-        const maxLength = 15;
-        return d.length > maxLength ? d.substring(0, maxLength) + '...' : d;
-      })
-      .append('title')
-      .text(d => d);
+    // legendItems.append('text')
+    //   .attr('x', 12)
+    //   .attr('y', 0)
+    //   .attr('dy', '0.35em')
+    //   .attr('font-size', '11px')
+    //   .attr('font-weight', '500')
+    //   .attr('fill', '#374151')
+    //   .attr('opacity', d => highlightedOwner && highlightedOwner !== d ? 0.4 : 1)
+    //   .text(d => {
+    //     const maxLength = 15;
+    //     return d.length > maxLength ? d.substring(0, maxLength) + '...' : d;
+    //   })
+    //   .append('title')
+    //   .text(d => d);
 
   }, [data, highlightedOwner, onOwnerHover]);
 

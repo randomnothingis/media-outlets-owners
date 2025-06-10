@@ -36,18 +36,18 @@ export const Dashboard: React.FC = () => {
   };
 
   const handleOwnerSelect = (owner: string | undefined) => {
-    setSelectedOwner(owner);
-    setSelectedOutlet(undefined); // Clear outlet selection when owner changes
+    // setSelectedOwner(owner);
+    // setSelectedOutlet(undefined); // Clear outlet selection when owner changes
     setHighlightedOwner(owner);
   };
 
   const handleOutletSelect = (outlet: string | undefined) => {
-    setSelectedOutlet(outlet);
+    // setSelectedOutlet(outlet);
     if (outlet) {
       // Find the owner of the selected outlet and highlight them
       const selectedOutletData = data.find(d => d.outlet === outlet);
       if (selectedOutletData) {
-        setSelectedOwner(selectedOutletData.owner);
+        // setSelectedOwner(selectedOutletData.owner);
         setHighlightedOwner(selectedOutletData.owner);
       }
     } else {
@@ -66,7 +66,7 @@ export const Dashboard: React.FC = () => {
   const totalOutlets = filteredData.length;
   const totalAudience = filteredData.reduce((sum, outlet) => sum + outlet.audience_size, 0);
   const uniqueOwners = new Set(filteredData.map(d => d.owner)).size;
-  const avgAge = Math.round(filteredData.reduce((sum, outlet) => sum + (2024 - outlet.founding_year), 0) / filteredData.length);
+
 
   if (loading) {
     return (
@@ -81,8 +81,8 @@ export const Dashboard: React.FC = () => {
 
   const tabs = [
     { id: 'timeline', label: 'Timeline', icon: BarChart3 },
-    { id: 'ownership', label: 'Tree View', icon: Network },
-    { id: 'radial', label: 'Radial View', icon: Circle },
+    // { id: 'ownership', label: 'Tree View', icon: Network },
+    { id: 'radial', label: 'Ownership', icon: Circle },
     { id: 'bubble', label: 'Audience', icon: Target }
   ];
 
@@ -91,7 +91,7 @@ export const Dashboard: React.FC = () => {
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-2">Media Outlet Dashboard</h1>
+          <h1 className="text-4xl font-bold text-gray-800 mb-2">Media Outlets</h1>
           <p className="text-gray-600 text-lg">Interactive visualization of media ownership and reach</p>
           {(selectedOwner || selectedOutlet) && (
             <div className="mt-4 flex justify-center">
@@ -117,7 +117,7 @@ export const Dashboard: React.FC = () => {
         </div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           <div className="bg-white rounded-xl shadow-lg p-6 text-center">
             <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg mx-auto mb-3">
               <BarChart3 className="h-6 w-6 text-blue-600" />
@@ -148,13 +148,13 @@ export const Dashboard: React.FC = () => {
             <p className="text-gray-600">Total Audience</p>
           </div>
 
-          <div className="bg-white rounded-xl shadow-lg p-6 text-center">
+          {/* <div className="bg-white rounded-xl shadow-lg p-6 text-center">
             <div className="flex items-center justify-center w-12 h-12 bg-orange-100 rounded-lg mx-auto mb-3">
               <TrendingUp className="h-6 w-6 text-orange-600" />
             </div>
             <h3 className="text-2xl font-bold text-gray-800">{avgAge || 0}</h3>
             <p className="text-gray-600">Avg Age (Years)</p>
-          </div>
+          </div> */}
         </div>
 
         {/* Main Content Area */}
@@ -165,7 +165,7 @@ export const Dashboard: React.FC = () => {
               data={data}
               selectedOwner={selectedOwner}
               selectedOutlet={selectedOutlet}
-              onOwnerSelect={handleOwnerSelect}
+              onOwnerSelect={handleOwnerSelect} 
               onOutletSelect={handleOutletSelect}
             />
           </div>
