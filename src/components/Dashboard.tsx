@@ -160,15 +160,15 @@ export const Dashboard: React.FC = () => {
         {/* Main Content Area */}
         <div className="flex gap-6">
           {/* Left Panel - Selection Interface */}
-          {/* <div className="flex-shrink-0">
+          <div className="flex-shrink-0">
             <SelectionPanel
               data={data}
               selectedOwner={selectedOwner}
               selectedOutlet={selectedOutlet}
-              onOwnerSelect={handleOwnerSelect}
-              onOutletSelect={handleOutletSelect}
+              onOwnerSelect={handleOwnerHighlight}
+              onOutletSelect={handleOutletHighlight}
             />
-          </div> */}
+          </div>
 
           {/* Right Panel - Visualizations */}
           <div className="flex-1">
