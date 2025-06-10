@@ -46,7 +46,7 @@ export const SelectionPanel: React.FC<SelectionPanelProps> = ({
   };
 
   return (
-    <div className="w-80 bg-white rounded-xl shadow-lg p-6 h-full flex flex-col">
+    <div className="w-80 bg-white rounded-xl shadow-lg p-6 h-full flex flex-row">
       {/* Owners Section */}
       <div className="mb-6 flex-1">
         <div className="flex items-center mb-4">
@@ -67,7 +67,8 @@ export const SelectionPanel: React.FC<SelectionPanelProps> = ({
             <div className="font-medium text-sm">All Owners</div>
             <div className="text-xs text-gray-500">View all media outlets</div>
           </button>
-          
+
+
           {owners.map((owner) => (
             <button
               key={owner[1].name}
