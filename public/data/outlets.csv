@@ -1,20 +1,20 @@
-outlet,owner,founding_year,end_year,audience_size,
-The New York Times,A.G. Sulzberger,1851,,10800000,
-The Wall Street Journal,Rupert Murdoch,1889,,3910000,
+outlet,owner,founding_year,end_year,audience_size
+The New York Times,A.G. Sulzberger,1851,,10800000
+The Wall Street Journal,Rupert Murdoch,1889,,3910000
 New York Post,Rupert Murdoch,1801,,
-Fox News,Rupert Murdoch,1996,
-Facebook,Mark Zuckerberg,2004,,3050000000,
-Instagram,Mark Zuckerberg,2010,,2000000000,
-WhatsApp,Mark Zuckerberg,2009,,2500000000,
-X (formerly Twitter),Elon Musk,2006,,330000000,
-The Guardian,Scott Trust Limited,1821
-BBC,UK Government,1922
-Al Jazeera,Al Jazeera Media Network,1996
-Reuters,Thomson Reuters,1851
-Bloomberg,Bloomberg L.P.,1981
-CNN,Warner Bros. Discovery,1980
-MSNBC,Comcast,1996
-NBC News,Comcast,1940   
+Fox News,Rupert Murdoch,1996,,
+Facebook,Mark Zuckerberg,2004,,3050000000
+Instagram,Mark Zuckerberg,2010,,2000000000
+WhatsApp,Mark Zuckerberg,2009,,2500000000
+X (formerly Twitter),Elon Musk,2006,,330000000
+The Guardian,Scott Trust Limited,1821,,
+BBC,UK Government,1922,,
+Al Jazeera,Al Jazeera Media Network,1996,,
+Reuters,Thomson Reuters,1851,,
+Bloomberg,Bloomberg L.P.,1981,,
+CNN,Warner Bros. Discovery,1980,,
+MSNBC,Comcast,1996,,
+NBC News,Comcast,1940,,   
 The Times* (UK),Rupert Murdoch,1785,,
 The Sun* (UK),Rupert Murdoch,1964,,
 The Australian,Rupert Murdoch,1964,,
